@@ -248,7 +248,21 @@ button:hover {
     text-align: center;
     margin-top: 10px;
 }
-
+/* Styles par défaut pour les écrans larges */
+body {
+    font-size: 16px;
+  }
+  
+  /* Styles pour les écrans de taille moyenne (par exemple, téléphones) */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 
 
 
