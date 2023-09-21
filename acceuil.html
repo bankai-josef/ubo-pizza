@@ -16,97 +16,19 @@
 
         <img src="https://i.ibb.co/kDG7h8g/logo.png" alt="attack on titan logo" width="200px" />
         <h1>UBO PIZZA</h1>
-        <a href="inscription.html" class="inscription-link">Inscription</a>
 
-        <a href="connexion.html" class="connexion-link">Connexion</a>
-        <div id="nom-utilisateur"></div>
-        <div id="user-info">
-        <!-- Afficher le nom de l'utilisateur ici -->
-    </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Récupérez le nom d'utilisateur de l'URL
-                var urlParams = new URLSearchParams(window.location.search);
-                var nomUtilisateur = urlParams.get("nom_utilisateur");
-            
-                // Vérifiez si un nom d'utilisateur a été transmis
-                if (nomUtilisateur) {
-                    // Affichez le nom d'utilisateur où vous le souhaitez sur la page
-                    var nomUtilisateurElement = document.getElementById("nom-utilisateur");
-                    if (nomUtilisateurElement) {
-                        nomUtilisateurElement.textContent = "Bonjour, " + nomUtilisateur + " !";
-                    }
-                }
-            });
-            </script>
             <main>
                 <h1>Bienvenue sur notre Restaurant !</h1>
                 <div id="nom-utilisateur"></div>
                 
                 <!-- Autre contenu de la page -->
-                <div id="user-info">
-        <!-- Afficher le nom de l'utilisateur ici -->
-    </div>
-                <button id="deconnexion-btn">Se déconnecter</button>
-            </main>
+
+
             
 
         
     </header>
-     <script>
-        // Vérifier si le nom de l'utilisateur est stocké dans le localStorage
-        const nomUtilisateur = localStorage.getItem("nom_utilisateur");
-        const userInfo = document.getElementById("user-info");
-        const deconnexionBtn = document.getElementById("deconnexion-btn");
-
-        if (nomUtilisateur) {
-            userInfo.textContent = "Bienvenue, " + nomUtilisateur;
-        } else {
-            userInfo.textContent = "Bienvenue, invité";
-        }
-
-        // Gestion de la déconnexion
-        deconnexionBtn.addEventListener("click", function () {
-            // Supprimer le nom de l'utilisateur du localStorage
-            localStorage.removeItem("nom_utilisateur");
-            
-            // Actualiser la page pour refléter la déconnexion
-            window.location.reload();
-        });
-    </script>
-    <script>
-        // Vérifier si le cookie "nom_utilisateur" existe
-        const nomUtilisateur = getCookie("nom_utilisateur");
-        const userInfo = document.getElementById("user-info");
-        const deconnexionBtn = document.getElementById("deconnexion-btn");
-
-        if (nomUtilisateur) {
-            userInfo.textContent = "Bienvenue, " + nomUtilisateur;
-        } else {
-            userInfo.textContent = "Bienvenue, invité";
-        }
-
-        // Fonction pour obtenir la valeur d'un cookie
-        function getCookie(name) {
-            const cookies = document.cookie.split('; ');
-            for (const cookie of cookies) {
-                const [cookieName, cookieValue] = cookie.split('=');
-                if (cookieName === name) {
-                    return cookieValue;
-                }
-            }
-            return null;
-        }
-
-        // Gestion de la déconnexion
-        deconnexionBtn.addEventListener("click", function () {
-            // Supprimer le cookie "nom_utilisateur"
-            document.cookie = "nom_utilisateur=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            
-            // Actualiser la page pour refléter la déconnexion
-            window.location.reload();
-        });
-    </script>
+    
     <script>
         let sIndex = 0;
         setInterval(autoSlide, 2000);
