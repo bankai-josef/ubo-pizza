@@ -55,6 +55,22 @@
     <footer>
         <p>&copy; 2023 UBO PIZZAx</p>
     </footer>
+    <form id="inscription-form" action="traitement_inscription.php" method="post">
+        <!-- Vos champs de formulaire ici -->
+        <input type="submit" value="S'inscrire">
+    </form>
+    <script>
+        // JavaScript pour la redirection après l'inscription réussie
+        document.getElementById("inscription-form").addEventListener("submit", function (e) {
+            // Empêcher la soumission du formulaire par défaut
+            e.preventDefault();
+
+            // Traitez l'inscription ici (validation, envoi de données, etc.)
+
+            // Redirigez l'utilisateur vers la page d'accueil
+            window.location.href = "acceuil.html"; // Remplacez "index.html" par le chemin de votre page d'accueil
+        });
+    </script>
     
     <script>
         var formulaireInscription = document.getElementById("formulaire-inscription");
