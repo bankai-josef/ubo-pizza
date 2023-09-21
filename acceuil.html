@@ -44,11 +44,36 @@
                 <div id="nom-utilisateur"></div>
                 
                 <!-- Autre contenu de la page -->
+                <div id="user-info">
+        <!-- Afficher le nom de l'utilisateur ici -->
+    </div>
+                <button id="deconnexion-btn">Se déconnecter</button>
             </main>
             
 
         
     </header>
+     <script>
+        // Vérifier si le nom de l'utilisateur est stocké dans le localStorage
+        const nomUtilisateur = localStorage.getItem("nom_utilisateur");
+        const userInfo = document.getElementById("user-info");
+        const deconnexionBtn = document.getElementById("deconnexion-btn");
+
+        if (nomUtilisateur) {
+            userInfo.textContent = "Bienvenue, " + nomUtilisateur;
+        } else {
+            userInfo.textContent = "Bienvenue, invité";
+        }
+
+        // Gestion de la déconnexion
+        deconnexionBtn.addEventListener("click", function () {
+            // Supprimer le nom de l'utilisateur du localStorage
+            localStorage.removeItem("nom_utilisateur");
+            
+            // Actualiser la page pour refléter la déconnexion
+            window.location.reload();
+        });
+    </script>
     <script>
         // Vérifier si le cookie "nom_utilisateur" existe
         const nomUtilisateur = getCookie("nom_utilisateur");
