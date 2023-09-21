@@ -20,6 +20,9 @@
 
         <a href="connexion.html" class="connexion-link">Connexion</a>
         <div id="nom-utilisateur"></div>
+        <div id="user-info">
+        <!-- Afficher le nom de l'utilisateur ici -->
+    </div>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 // Récupérez le nom d'utilisateur de l'URL
@@ -46,6 +49,39 @@
 
         
     </header>
+    <script>
+        // Vérifier si le cookie "nom_utilisateur" existe
+        const nomUtilisateur = getCookie("nom_utilisateur");
+        const userInfo = document.getElementById("user-info");
+        const deconnexionBtn = document.getElementById("deconnexion-btn");
+
+        if (nomUtilisateur) {
+            userInfo.textContent = "Bienvenue, " + nomUtilisateur;
+        } else {
+            userInfo.textContent = "Bienvenue, invité";
+        }
+
+        // Fonction pour obtenir la valeur d'un cookie
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (const cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return null;
+        }
+
+        // Gestion de la déconnexion
+        deconnexionBtn.addEventListener("click", function () {
+            // Supprimer le cookie "nom_utilisateur"
+            document.cookie = "nom_utilisateur=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            
+            // Actualiser la page pour refléter la déconnexion
+            window.location.reload();
+        });
+    </script>
     <script>
         let sIndex = 0;
         setInterval(autoSlide, 2000);
